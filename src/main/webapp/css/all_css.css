@@ -1,0 +1,91 @@
+/* Colors */
+:root {
+    --primary-color: #09b4c5;
+    --secondary-color: #094c5d;
+    --accent-color: #e5e5e5;
+    --text-color: #333;
+    --button-color: #09b4c5;
+    --button-hover: #d6487e;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: var(--button-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+.redirect-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.redirect-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.redirect-links a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Styling */
+.dashboard-container {
+    padding: 20px;
+    background-color: var(--accent-color);
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.student-info p {
+    margin: 10px 0;
+}
+
+.action-links {
+    text-align: center;
+}
+
+.action-links a {
+    color: var(--button-color);
+    text-decoration: none;
+}
+
+.action-links a:hover {
+    text-decoration: underline;
+}

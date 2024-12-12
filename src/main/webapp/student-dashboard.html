@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/all_css.css">
+</head>
+<body>
+<div class="dashboard">
+    <h2>Welcome, <span th:text="${student.fullName}">Student Name</span></h2>
+    <div class="student-info">
+        <h3>Your Information:</h3>
+        <p><strong>Email:</strong> <span th:text="${student.email}">student@example.com</span></p>
+        <p><strong>Age:</strong> <span th:text="${student.age}">20</span></p>
+        <p><strong>Phone Number:</strong> <span th:text="${student.phoneNumber}">123-456-7890</span></p>
+        <p><strong>Address:</strong> <span th:text="${student.address}">123 Main St</span></p>
+        <p><strong>Courses Enrolled:</strong> <span th:text="${student.enrolledCourses}">Math, Science</span></p>
+        <p><strong>Registration Date:</strong> <span th:text="${student.registrationDate}">2024-01-01</span></p>
+    </div>
+    <div class="logout">
+        <a href="/logout.jsp">Logout</a>
+    </div>
+</div>
+</body>
+</html>

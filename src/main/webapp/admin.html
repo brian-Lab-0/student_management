@@ -1,0 +1,205 @@
+<!doctype html>
+<html class="x-admin-sm" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Student Manager</title>
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <!--<meta http-equiv="Cache-Control" content="no-siteapp" />-->
+
+        <!-- Favicon -->
+        <link href="img/favicon.png" rel="icon">
+
+
+        <link rel="stylesheet" href="css/font.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/iconfont.css">
+		<link rel="stylesheet" href="layui/css/layui.css">
+        <script src="layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+	
+    </head>
+    <script src="//code.tidio.co/x30ci0efv5mqqvpjmfg6zj2fcd1ezxde.js" async></script>
+    <body class="index">
+         <!-- top start -->
+		<div class="container" style="background: #144a4b">
+			<div class="left_open">
+				<a><i title="Expand the left column" class="iconfont">&#xe699;</i></a>
+			</div>
+            <div class="logo">
+                <a href="index.html">Home</a>
+            </div>
+			<ul class="layui-nav right" style="margin-right: 50px;" lay-filter="">
+				<!--<li style="margin-top:19px;margin-right:40px;float:left">
+					<i class="layui-icon layui-icon-username" style="font-weight: 200; font-size: 16px;"></i>
+                    <span id="login-user">Login User</span>
+				</li>-->
+				<li class="layui-nav-item">
+					<a href="javascript:;">👨‍ hi Admin</a>
+					<dl class="layui-nav-child">
+						<!-- Secondary menu -->
+						<dd>
+							<a href="login.jsp">Change account</a></dd>
+						<dd>
+							<a href="./index.html">Exit</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+        <!-- start end -->
+        <!-- center start -->
+        <!-- left menu start -->
+        <div class="left-nav" style="background: #14797a">
+            <div id="side-nav" >
+                <ul id="nav">
+                    <li>
+                        <a href="javascript:;" onclick="xadmin.add_tab('My home page','scoreList.html')">
+                            <i class="layui-icon left-nav-li " style="color: #FFFFFF" lay-tips="Home Page">&#xe68e;</i>
+                            <cite style="color: #FFFFFF">Home Page</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+
+                    </li>
+
+                    <li class="layui-nav-item" style="color: #ffffff">
+                        <a href="javascript:;">
+                            <i class="iconfont left-nav-li" lay-tips="Student Manage">
+                                <svg
+                                        class="lucide lucide-users-round"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke-width="2"
+                                        stroke="white"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        height="14"
+                                        width="14"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M18 21a8 8 0 0 0-16 0"></path>
+                                    <circle r="5" cy="8" cx="10"></circle>
+                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
+                                </svg>
+
+                            </i>
+                            <cite style="color: #FFFFFF">Student Manage</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a onclick="xadmin.add_tab('Add Student score','scoreAdd.html')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite style="color: #FFFFFF">Add Student Score</cite></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li  class="layui-nav-item" style="color: #ffffff">
+                        <a href="https://c0c013d33b257ff33eff.vercel.app/create" target="_blank">
+                            <i class="iconfont left-nav-li" lay-tips="Student Manage">
+                                <svg
+                                        class="lucide lucide-classroom"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke-width="2"
+                                        stroke="white"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        height="14"
+                                        width="14"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                    <line x1="2" y1="9" x2="22" y2="9"></line>
+                                    <line x1="6" y1="17" x2="10" y2="17"></line>
+                                    <line x1="14" y1="17" x2="18" y2="17"></line>
+                                </svg>
+
+                            </i>
+                            <cite style="color: #FFFFFF">Start Class</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                    </li>
+                    <li  class="layui-nav-item" style="color: #ffffff">
+                        <a href="https://app.purechat.com/chats/63485969" target="_blank">
+                            <i class="iconfont left-nav-li" lay-tips="Student Manage">
+                                <svg
+                                        class="lucide lucide-chat"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke-width="2"
+                                        stroke="white"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        height="14"
+                                        width="14"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+
+                            </i>
+                            <cite style="color: #FFFFFF">Open Chat</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                    </li>
+                  
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="x-slide_left"></div> -->
+        <!-- left menu start -->
+		
+        <!-- Right body start -->
+        <div class="page-content">
+            <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+                <ul class="layui-tab-title">
+                    <li class="home">
+                        <i class="layui-icon">&#xe68e;</i>My desktop</li></ul>
+                <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+                    <dl>
+                        <dd data-type="this">Close current</dd>
+                        <dd data-type="other">Close others</dd>
+                        <dd data-type="all">Close all</dd></dl>
+                </div>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src='scoreList.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                    </div>
+                </div>
+                <div id="tab_show"></div>
+            </div>
+        </div>
+        <div class="page-content-bg"></div>
+        <style id="theme_style"></style>
+        <!-- Right body end -->
+        <!-- Center end -->
+
+
+
+    </body>
+ <!--   src="js/jquery-1.10.2.min.js"-->
+    <script >
+
+        // Function to get a cookie value by name
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+
+        // Update the admin link with the user's email
+        document.addEventListener("DOMContentLoaded", function () {
+            const userEmail = getCookie("userEmail");
+            if (userEmail) {
+                const adminLink = document.querySelector('a[href="javascript:;"]');
+                if (adminLink) {
+                    adminLink.textContent = `👨‍ (${userEmail})`;
+                }
+            }
+        });
+
+
+    </script>
+
+</html>
+
+

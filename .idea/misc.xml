@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://mybatis.org/dtd/mybatis-3-config.dtd" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/69c70a2f_mybatis-3-config.dtd" />
+    <resource url="http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/cf63db72_mybatis-generator-config_1_0.dtd" />
+    <resource url="http://www.springframework.org/schema/beans" location="$PROJECT_DIR$" />
+    <resource url="http://www.springframework.org/schema/beans/spring-beans.xsd" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/334543e7_spring-beans.xsd" />
+    <resource url="http://www.springframework.org/schema/context" location="$PROJECT_DIR$" />
+    <resource url="http://www.springframework.org/schema/context/spring-context.xsd" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/a93b54e7_spring-context.xsd" />
+    <resource url="http://www.springframework.org/schema/mvc" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/f7d22907_spring-mvc.xsd" />
+    <resource url="https://www.springframework.org/schema/beans/spring-beans-4.3.xsd" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/38fbf776_spring-beans-4.3.xsd" />
+    <resource url="https://www.springframework.org/schema/tool/spring-tool-4.3.xsd" location="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2020.3/extResources/93b79a08_spring-tool-4.3.xsd" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

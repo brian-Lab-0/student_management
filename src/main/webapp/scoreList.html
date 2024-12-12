@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Score List</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js" lang="en" xml:lang="en" charset="utf-8"></script>
+    <!--<script src="//unpkg.com/layui@2.9.20/dist/layui.js" lang="en"></script>-->
+    <script type="text/javascript" src="js/index.js"></script>
+
+</head>
+<body>
+<!-- Condition combination query input box Start-->
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body " style="flex: auto">
+                    <form class="layui-form layui-col-space5" >
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" class="layui-input"  autocomplete="off" placeholder="Student name" name="studentname" id="studentname">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" class="layui-input"  autocomplete="off" placeholder="Student ID" name="studentid" id="studentid">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" id="term" name="term"  placeholder="Semester" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" id="classname" name="classname"  placeholder="Class" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" id="coursenanme" name="coursenanme"  placeholder="Course name" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <button class="layui-btn"  lay-submit lay-filter="search" style="background: #06b6c6"><i class="layui-icon" >&#xe615;</i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-card-header">
+                    <button class="layui-btn layui-btn-danger" onclick="delAll()" style="background: #e30c15"><i class="layui-icon" ></i>Batch delete</button>
+                    <button class="layui-btn" onclick="xadmin.open('Add Score','scoreAdd.html',800,500)"style="background: #06afbf"><i class="layui-icon"></i>Add</button>
+                </div>
+                <div class="layui-card-body layui-table-body layui-table-main" style="background: #f3f3f3">
+                    <!-- Using the method of rendering, you only need a table selector-->
+                    <table class="layui-hide" id="test" lay-filter="test"></table>
+                </div>          
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Condition combination query input box End-->
+</body>
+<!--Row action button toolbar definition on data table Start -->
+<script id="barDemo" type="text/html">
+	<a class="layui-btn layui-btn-xs" lay-event="edit" style="text-align-all:center ; background: #06afbf ; height:26px" >Edit</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" style="text-align-all:center ; background: #e30c15 ; height:26px">Del</a>
+</script>
+<!--Row action button toolbar definition on data table End -->
+<script>
+    layui.use(['laydate','form','table','layer'], function(){
+        var layer = layui.layer
+        ,table = layui.table
+        ,laydate = layui.laydate
+            ,form = layui.form;
+
+
+        //Table data loading and rendering
+        table.render({
+			elem: '#test' //Specifies the table ID to render
+			,height: '400px' //Set table height
+			,url:'score/scoreview' //Specify the JSON file to load data
+			,page: { //Define toolbar
+			  layout: ['count', 'prev', 'page', 'next', 'skip'] //Customize Toolbar content
+			  ,groups: 5 //Display up to 5 consecutive page numbers
+			} 
+			,limit:10
+			,cellMinWidth: 35 //Defines the minimum width of a regular cell
+			//,toolbar: '#toolbarDemo'
+			,title: 'Blog list'
+			,cols: [[
+			{type:'checkbox'},  //Add row check box
+			  {field:'number',title:'Serial',align:'center',type:'numbers',width:50},
+			  {field:'studentid', width:130, title: 'STUDENT ID'},
+			  {field:'studentname', width:150, title: 'STUDENT NAME',type:'text',sort:true },
+              {field:'term', title: 'TERM', width:120, sort: true},
+			  {field:'classid', title: 'CLASS ID', width:100, sort: true},
+			  {field:'classname', title: 'CLASS NAME', width:130, sort: true},
+			  {field:'courseid', title: 'COURSE ID', width:150, sort: true},
+			  {field:'coursenanme', title: 'COURSE NAME', width:270, sort: true},
+              {field:'score',title:'SCORE',width:90},
+              {fixed: 'right', title:'', toolbar: '#barDemo', width:130}
+			  
+			]]
+		});
+
+        //click query button
+        form.on('submit(search)', function(data){
+            //layer.alert(JSON.stringify(data.field));
+
+            //Build query parameters
+            var para = '';
+            if(data.field.studentname!=null && data.field.studentname!=''){
+                para += 'studentname=' + data.field.studentname + '&';
+            }
+            if(data.field.studentid!=null  && data.field.studentid!=''){
+                para += 'studentid=' + data.field.studentid + '&';
+            }
+            if(data.field.term!=null  && data.field.term!=''){
+                para += 'term=' + data.field.term + '&';
+            }
+            if(data.field.coursenanme!=null &&  data.field.coursenanme!=''){
+                para += 'coursenanme=' + data.field.coursenanme + '&';
+            }
+            if(data.field.classname!=null &&  data.field.classname!=''){
+                para += 'classname=' + data.field.classname + '&';
+            }
+            //Table data loading and rendering
+            table.render({
+                type:'get'
+                ,elem: '#test' //Specifies the table ID to render
+                ,height: '400px' //Set table height
+                ,url:'score/scoreview?'+para //Specify the JSON file to load data
+                ,page: { //Define toolbar
+                    layout: ['count', 'prev', 'page', 'next', 'skip'] //Customize Toolbar content
+                    ,groups: 5 //Display up to 5 consecutive page numbers
+                }
+                ,limit:10
+                ,cellMinWidth: 35 //Defines the minimum width of a regular cell
+                //,toolbar: '#toolbarDemo'
+                ,title: 'Blog list'
+                ,cols: [[
+                    {type:'checkbox'},  //Add row check box
+                    {field:'number',title:'Serial',align:'center',type:'numbers',width:50},
+                    {field:'studentid', width:130, title: 'STUDENT ID'},
+                    {field:'studentname', width:150, title: 'STUDENT NAME',type:'text',sort:true },
+                    {field:'term', title: 'TERM', width:120, sort: true},
+                    {field:'classid', title: 'CLASS ID', width:100, sort: true},
+                    {field:'classname', title: 'CLASS NAME', width:130, sort: true},
+                    {field:'courseid', title: 'COURSE ID', width:150, sort: true},
+                    {field:'coursenanme', title: 'COURSE NAME', width:270, sort: true},
+                    {field:'score',title:'SCORE',width:90},
+                    {fixed: 'right', title:'', toolbar: '#barDemo', width:130}
+                ]]
+            });
+
+            return false;
+        });
+        	  
+		  //listen tools bar
+		  table.on('tool(test)', function(obj){//Obj stores the data of JSON objects 
+											   //from multiple event lines
+			var data = obj.data;
+			if(obj.event === 'edit'){
+				xadmin.open('Edit Score','scoreEdit.html#/scoreid='+data.scoreid,800,600);
+			  //Popup Message
+			  
+			} else if(obj.event === 'del'){
+			  //Confirmation message box
+			  layer.confirm('Are you sure you want to delete it?', function(index){
+                  $.ajax({
+                      type:"get",
+                      url:"score/deletescore?scoreid="+data.scoreid,
+                      dataType:"json",
+                      success:function (data) {
+                          if(data.status==10001){
+                              layer.alert(data.msg);
+                              obj.del(); //Delete current row
+                          }else{
+                              layer.alert(data.msg);
+                              return false;
+                          }
+                      }
+                  });
+				layer.close(index); //Close the current deletion prompt form
+			  });
+			} 
+		  });
+	});	
+
+    /*Open the hotel add page*/
+    function member_add(title,url,id,w,h){
+        xadmin.open(title,url,id,w,h);
+    }
+
+    /*Delete the selected Hotel*/
+    function delAll (argument) {
+        var ids = [];
+
+        // 获取选中的id
+        $('tbody input').each(function(index, el) {
+            if($(this).prop('checked')){
+                ids.push($(this).val())
+            }
+        });
+
+        layer.confirm('Are you sure you want to delete？'+ids.toString(),{icon:3,title:'Prompt information'},function(index){
+            //Delete using asynchronous request
+            layer.msg('Deletion succeeded', {icon: 1});
+            $(".layui-form-checked").not('.header').parents('tr').remove();
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.dao.TScoreMapper">
+  <resultMap id="BaseResultMap" type="model.TScore">
+    <id column="scoreid" jdbcType="INTEGER" property="scoreid" />
+    <result column="term" jdbcType="VARCHAR" property="term" />
+    <result column="studentid" jdbcType="VARCHAR" property="studentid" />
+    <result column="studentname" jdbcType="VARCHAR" property="studentname" />
+    <result column="classid" jdbcType="VARCHAR" property="classid" />
+    <result column="classname" jdbcType="VARCHAR" property="classname" />
+    <result column="courseid" jdbcType="VARCHAR" property="courseid" />
+    <result column="coursenanme" jdbcType="VARCHAR" property="coursenanme" />
+    <result column="score" jdbcType="DOUBLE" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scoreid, term, studentid, studentname, classid, classname, courseid, coursenanme, 
+    score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_score
+    where scoreid = #{scoreid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectBySelective" parameterType="model.TScore" resultType="model.TScore">
+    select
+    <include refid="Base_Column_List" />
+    from t_score
+    <where>
+      <trim prefixOverrides="and">
+        <if test="scoreid != null and scoreid!=0">
+          and scoreid = #{scoreid}
+        </if>
+        <if test="term != null and term!=''">
+          and term like '%${term}%'
+        </if>
+        <if test="score != null and score!=0">
+          and score = #{score}
+        </if>
+        <if test="studentid != null and studentid!=''">
+          and studentid like '%${studentid}%'
+        </if>
+        <if test="studentname != null and studentname!=''">
+          and studentname like '%${studentname}%'
+        </if>
+        <if test="classid != null and classid!=''">
+          and classid like '%${classid}%'
+        </if>
+        <if test="classname != null and classname!=''">
+          and classname like '%${classname}%'
+        </if>
+        <if test="courseid != null and courseid!=''">
+          and courseid like '%${courseid}%'
+        </if>
+        <if test="coursenanme != null and coursenanme!=''">
+          and coursenanme like '%${coursenanme}%'
+        </if>
+      </trim>
+    </where>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_score
+    where scoreid = #{scoreid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.TScore" useGeneratedKeys="true" keyProperty="scoreid">
+    insert into t_score (scoreid, term, studentid, 
+      studentname, classid, classname, 
+      courseid, coursenanme, score
+      )
+    values (#{scoreid,jdbcType=INTEGER}, #{term,jdbcType=VARCHAR}, #{studentid,jdbcType=VARCHAR}, 
+      #{studentname,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, 
+      #{courseid,jdbcType=VARCHAR}, #{coursenanme,jdbcType=VARCHAR}, #{score,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.TScore" useGeneratedKeys="true" keyProperty="scoreid">
+    insert into t_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scoreid != null">
+        scoreid,
+      </if>
+      <if test="term != null">
+        term,
+      </if>
+      <if test="studentid != null">
+        studentid,
+      </if>
+      <if test="studentname != null">
+        studentname,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="classname != null">
+        classname,
+      </if>
+      <if test="courseid != null">
+        courseid,
+      </if>
+      <if test="coursenanme != null">
+        coursenanme,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scoreid != null">
+        #{scoreid,jdbcType=INTEGER},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="studentid != null">
+        #{studentid,jdbcType=VARCHAR},
+      </if>
+      <if test="studentname != null">
+        #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null">
+        #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="coursenanme != null">
+        #{coursenanme,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.TScore">
+    update t_score
+    <set>
+      <if test="term != null">
+        term = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="studentid != null">
+        studentid = #{studentid,jdbcType=VARCHAR},
+      </if>
+      <if test="studentname != null">
+        studentname = #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        classid = #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null">
+        courseid = #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="coursenanme != null">
+        coursenanme = #{coursenanme,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where scoreid = #{scoreid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.TScore">
+    update t_score
+    set term = #{term,jdbcType=VARCHAR},
+      studentid = #{studentid,jdbcType=VARCHAR},
+      studentname = #{studentname,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=VARCHAR},
+      classname = #{classname,jdbcType=VARCHAR},
+      courseid = #{courseid,jdbcType=VARCHAR},
+      coursenanme = #{coursenanme,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DOUBLE}
+    where scoreid = #{scoreid,jdbcType=INTEGER}
+  </update>
+</mapper>

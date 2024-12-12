@@ -1,0 +1,30 @@
+{
+  "code":0,
+    "msg":"query success",
+	"count":3,
+    "data": [{
+      "hotelid": "1"
+      ,"hotelname": "Zhenmei Holiday Inn (Dali Erhai cliff sea view store)"
+	  ,"country": "China"
+      ,"province": "Yunnan"
+      ,"city": "Dali"
+      ,"detailaddr":"5 Jixiang Road, Dali ancient city"
+	  ,"userid":"beike1"
+    }, {
+      "hotelid": "2"
+      ,"hotelname": "New Palm Inn"
+      ,"country": "China"
+      ,"province": "Yunnan"
+      ,"city": "Dali"
+      ,"detailaddr":"109 yincang Road, Dali ancient city"
+      ,"userid":"beike1"
+    }, {
+     "hotelid": "3"
+     ,"hotelname": "Sofitel Hotel"
+     ,"country": "China"
+     ,"province": "Yunnan"
+     ,"city": "Kunming"
+     ,"detailaddr":"Intersection of Huancheng South Road and Huancheng West Road"
+     ,"userid":"beike1"
+    }]
+}  
